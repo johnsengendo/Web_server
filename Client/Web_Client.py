@@ -23,6 +23,7 @@ def fetch_web_page():
     try:
         response = requests.get("http://10.0.0.1:8000")
         print(f"Response from server: {response.status_code}\n{response.text}")
+        time.sleep(1)
     finally:
         stop_tcpdump(tcpdump_proc)
 
