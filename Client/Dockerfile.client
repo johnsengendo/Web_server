@@ -1,0 +1,20 @@
+FROM ubuntu:20.04
+
+# Installing useful tools
+# Copying the script that installs packages
+COPY install_packages.sh /home/
+
+# Making the script executable
+RUN chmod +x /home/install_packages.sh
+
+# Running the script to install packages
+RUN /home/install_packages.sh
+
+# Copying the get_video_streamed script
+COPY Web_Client.py /home/
+
+# Making the script executable
+RUN chmod +x /home/Web_Client.py
+
+# Default command for docker run
+CMD ["bash"]
