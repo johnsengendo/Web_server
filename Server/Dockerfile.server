@@ -1,0 +1,19 @@
+FROM ubuntu:20.04
+
+# Copy the script that installs necessary packages and any additional system dependencies
+COPY install_packages.sh /home/
+
+RUN chmod +x /home/install_packages.sh
+
+# Running the script to install packages
+RUN /home/install_packages.sh
+
+# Copying the video streaming script
+COPY Web_Server.py /home/
+
+# Make the web server script executable
+RUN chmod +x Web_Server.py
+
+# Inform Docker that the container is listening on port 8000
+EXPOSE 8000
+CMD ["bash"]
