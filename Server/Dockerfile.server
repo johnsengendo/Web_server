@@ -12,7 +12,7 @@ RUN /home/install_packages.sh
 COPY Web_Server.py /home/
 
 # Make the web server script executable
-RUN chmod +x Web_Server.py
+RUN chmod +x /home/Web_Server.py
 
 # Inform Docker that the container is listening on port 8000
 EXPOSE 8000
