@@ -6,26 +6,9 @@ import requests
 import subprocess
 import time
 
-def start_tcpdump():
-    """Start capturing packets using tcpdump."""
-    return subprocess.Popen(['tcpdump', '-i', 'any', '-w', '/path/to/save/client_capture.pcap', 'tcp and port 8000 and host 10.0.0.1'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+url = "http://localhost:8000"
 
-def stop_tcpdump(process):
-    """Stop the tcpdump process."""
-    process.terminate()
-    process.wait()
-
-def fetch_web_page():
-    """Fetch the web page and manage tcpdump."""
-    tcpdump_proc = start_tcpdump()
-    time.sleep(1)  # Give tcpdump a moment to start
-    
-    try:
-        response = requests.get("http://10.0.0.1:8000")
-        print(f"Response from server: {response.status_code}\n{response.text}")
-        time.sleep(1)
-    finally:
-        stop_tcpdump(tcpdump_proc)
-
-if __name__ == "__main__":
-    fetch_web_page()
+for i in range(10):
+    response = requests.get(url)
+    print(f"Request {i+1}: Response from server: {response.status_code}")
+    time.sleep(1)  # wait a second between requests
