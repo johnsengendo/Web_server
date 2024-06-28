@@ -16,11 +16,6 @@ from mininet.link import TCLink
 from mininet.log import info, setLogLevel
 from mininet.node import Controller
 
-def stop_network(net, delay):
-    """Stop the network after a given delay in seconds."""
-    time.sleep(delay)
-    net.stop()
-    print("Network stopped.")
 
 # Main execution starts here
 if __name__ == '__main__':
@@ -112,15 +107,9 @@ if __name__ == '__main__':
     server_thread.join()
     client_thread.join()
 
-    stop_delay = 20  # Delay in seconds before stopping the network
-    timer = threading.Thread(target=stop_network, args=(net, stop_delay))
-    timer.start()
-
     # If not in autotest mode, start an interactive CLI
     if not autotest:
-        CLI(net)
-    else:
-        timer.join()    
+        CLI(net) 
 
     # Cleanup: removing containers and stopping the network and VNF manager
     mgr.removeContainer('streaming_server')
