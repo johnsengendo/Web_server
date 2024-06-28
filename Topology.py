@@ -80,6 +80,7 @@ if __name__ == '__main__':
             }
         }
     )
+    time.sleep(5)
     streaming_client = mgr.addContainer(
         'streaming_client', 'client', 'video_streaming_client', 'python3 /home/Web_Client.py', docker_args={
             'volumes': {
@@ -87,6 +88,7 @@ if __name__ == '__main__':
             }
         }
     )
+    time.sleep(10)
 
     client_log = streaming_client.getLogs()
     print("\n*** Setup1: Current log of the client: \n{}".format(client_log))
