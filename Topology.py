@@ -90,8 +90,8 @@ if __name__ == '__main__':
     )
     time.sleep(20)
 
-    client_log = streaming_client.getLogs()
-    print("\n*** Setup1: Current log of the client: \n{}".format(client_log))
+    cliet = streaming_client.getLogs()
+    print("\n*** Current web client logs: \n{}".format(client_log))
 
 
 
