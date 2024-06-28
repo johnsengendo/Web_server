@@ -74,14 +74,14 @@ if __name__ == '__main__':
     
     # Setting up video streaming services in the containers
     streaming_server = mgr.addContainer(
-        'streaming_server', 'server', 'video_streaming_server', 'python3 /home/Server/Web_Server.py', docker_args={
+        'streaming_server', 'server', 'video_streaming_server', 'python3 /home/Web_Server.py', docker_args={
             'volumes': {
                 shared_dir: {'bind': '/home/pcap/', 'mode': 'rw'}
             }
         }
     )
     streaming_client = mgr.addContainer(
-        'streaming_client', 'client', 'video_streaming_client', 'python3 /home/Client/Web_Client.py', docker_args={
+        'streaming_client', 'client', 'video_streaming_client', 'python3 /home/Web_Client.py', docker_args={
             'volumes': {
                 shared_dir: {'bind': '/home/pcap/', 'mode': 'rw'}
             }
