@@ -5,7 +5,7 @@ import http.server
 import socketserver
 
 PORT = 8000
-MAX_REQUESTS = 50
+MAX_REQUESTS = 10
 request_count = 0
 
 class LimitedRequestHTTPServer(socketserver.TCPServer):
