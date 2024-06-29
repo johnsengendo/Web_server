@@ -32,7 +32,7 @@ while request_count < MAX_REQUESTS:
     httpd.handle_request()
 
 # Shut down the server
-print("Reached maximum number of requests, shutting down.")
+print("Reached maximum number of requests, shutting downing....")
 httpd.shutdown()
 httpd.server_close()
 print("Server shut down.")
