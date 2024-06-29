@@ -8,9 +8,7 @@ import os
 def start_tcpdump():
     """Start capturing packets using tcpdump."""
     # Note: Adjust the path and capture filter as necessary
-    if not os.path.exists('boxer'):
-        os.makedirs('boxer')
-    return subprocess.Popen(['tcpdump', '-i', 'any', '-w', 'boxer/client_capture.pcap', 'tcp and port 8000 and host 10.0.0.1'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return subprocess.Popen(['tcpdump', '-i', 'any', '-w', 'pcap/client_capture.pcap', 'tcp and port 8000 and host 10.0.0.1'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 def stop_tcpdump(process):
     """Stop the tcpdump process."""
