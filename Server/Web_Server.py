@@ -16,10 +16,6 @@ class LimitedRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         global request_count
         request_count += 1
-        if request_count >= MAX_REQUESTS:
-            print("Reached maximum number of requests, shutting down.")
-            self.server.shutdown()
-            return
 
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
@@ -36,5 +32,7 @@ while request_count < MAX_REQUESTS:
     httpd.handle_request()
 
 # Shut down the server
+print("Reached maximum number of requests, shutting down.")
+httpd.shutdown()
 httpd.server_close()
 print("Server shut down.")
