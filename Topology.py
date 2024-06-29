@@ -80,7 +80,7 @@ if __name__ == '__main__':
         }
     )
     streaming_client = mgr.addContainer(
-        'streaming_client', 'client', 'video_streaming_client', 'python3 /home/Client/Web_Client.py', docker_args={
+        'streaming_client', 'client', 'video_streaming_client', 'python3 /home/Web_Client.py', docker_args={
             'volumes': {
                 shared_dir: {'bind': '/home/pcap/', 'mode': 'rw'}
             }
