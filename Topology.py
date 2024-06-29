@@ -73,38 +73,19 @@ if __name__ == '__main__':
     
     # Setting up video streaming services in the containers
     streaming_server = mgr.addContainer(
-        'streaming_server', 'server', 'video_streaming_server', '', docker_args={
+        'streaming_server', 'server', 'video_streaming_server', 'python3 /home/Server/Web_Server.py', docker_args={
             'volumes': {
                 shared_dir: {'bind': '/home/pcap/', 'mode': 'rw'}
             }
         }
     )
     streaming_client = mgr.addContainer(
-        'streaming_client', 'client', 'video_streaming_client', '', docker_args={
+        'streaming_client', 'client', 'video_streaming_client', 'python3 /home/Client/Web_Client.py', docker_args={
             'volumes': {
                 shared_dir: {'bind': '/home/pcap/', 'mode': 'rw'}
             }
         }
     )
-
-    # Defining server and client operations in threads
-    def start_server():
-        subprocess.run(['docker', 'exec', '-it', 'streaming_server', 'bash', '-c', 'cd /home && python3 Web_Server.py'])
-
-    def start_client():
-        subprocess.run(['docker', 'exec', '-it', 'streaming_client', 'bash', '-c', 'cd /home && python3 Web_Client.py'])
-
-    # Creating threads to run the server and client
-    server_thread = threading.Thread(target=start_server)
-    client_thread = threading.Thread(target=start_client)
-
-    # Starting the threads
-    server_thread.start()
-    client_thread.start()
-
-    # Waitting for the server and client threads to finish
-    server_thread.join()
-    client_thread.join()
 
     # If not in autotest mode, start an interactive CLI
     if not autotest:
