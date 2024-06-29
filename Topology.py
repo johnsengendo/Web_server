@@ -86,6 +86,8 @@ if __name__ == '__main__':
             }
         }
     )
+    client = streaming_client.getLogs()
+    print("\n Current web client logs: \n{}".format(client))
 
     # If not in autotest mode, start an interactive CLI
     if not autotest:
