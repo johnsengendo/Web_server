@@ -17,7 +17,7 @@ As the client queries the web server, a TCP dump is performed at the client side
    ```bash
    sudo python3 Topology.py
 
-** Sample pcap file for the traffic captured during the browsing of the web server**
+**Sample pcap file for the traffic captured during the browsing of the web server**
 ![Alt text](https://github.com/johnsengendo/Web_sever/blob/main/Screenshot%202024-07-01%20003211.png)
 
 
