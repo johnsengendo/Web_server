@@ -28,7 +28,7 @@ class LimitedRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.server.shutdown()
             return
 
-        # Sending a response with a 200 status code and a simple HTML page
+        # Sending a response with a 200 status code and an HTML web page
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
