@@ -15,5 +15,4 @@ COPY Web_Client.py /home/
 # Making the script executable
 RUN chmod +x /home/Web_Client.py
 
-# Default command for docker run
 CMD ["bash"]
