@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 
-# Installing useful tools
 # Copying the script that installs packages
 COPY install_packages.sh /home/
 
@@ -10,7 +9,7 @@ RUN chmod +x /home/install_packages.sh
 # Running the script to install packages
 RUN /home/install_packages.sh
 
-# Copying the get_video_streamed script
+# Copying the Web_client script
 COPY Web_Client.py /home/
 
 # Making the script executable
