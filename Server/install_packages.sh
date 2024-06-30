@@ -16,7 +16,7 @@ apt-get install -y --no-install-recommends \
 # Install Python packages
 pip install requests
 
-# Installing the packages required for streaming videos and dumping traffic.
+# Installing the packages required
 apt-get install -y \
     tcpdump \
     nano
