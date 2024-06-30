@@ -9,7 +9,7 @@ RUN chmod +x /home/install_packages.sh
 # Running the script to install packages
 RUN /home/install_packages.sh
 
-# Copying the video streaming script
+# Copying the Web_server script
 COPY Web_Server.py /home/
 
 # Making the web server script executable
