@@ -71,16 +71,16 @@ if __name__ == '__main__':
     reply = client.cmd("ping -c 5 10.0.0.1")
     print(reply)
     
-    # Setting up video streaming services in the containers
-    streaming_server = mgr.addContainer(
-        'streaming_server', 'server', 'web_server', '', docker_args={
+    # Setting up web services in the containers
+    host_server = mgr.addContainer(
+        'host_server', 'server', 'web_server', '', docker_args={
             'volumes': {
                 shared_dir: {'bind': '/home/pcap/', 'mode': 'rw'}
             }
         }
     )
-    streaming_client = mgr.addContainer(
-        'streaming_client', 'client', 'web_client', '', docker_args={
+    browsing_client = mgr.addContainer(
+        'browsing_client', 'client', 'web_client', '', docker_args={
             'volumes': {
                 shared_dir: {'bind': '/home/pcap/', 'mode': 'rw'}
             }
@@ -89,10 +89,10 @@ if __name__ == '__main__':
 
     # Defining server and client operations in threads
     def start_server():
-        subprocess.run(['docker', 'exec', '-it', 'streaming_server', 'bash', '-c', 'cd /home && python3 Web_Server.py'])
+        subprocess.run(['docker', 'exec', '-it', 'host_server', 'bash', '-c', 'cd /home && python3 Web_Server.py'])
 
     def start_client():
-        subprocess.run(['docker', 'exec', '-it', 'streaming_client', 'bash', '-c', 'cd /home && python3 Web_Client.py'])
+        subprocess.run(['docker', 'exec', '-it', 'browsing_client', 'bash', '-c', 'cd /home && python3 Web_Client.py'])
 
     # Creating threads to run the server and client
     server_thread = threading.Thread(target=start_server)
@@ -111,7 +111,7 @@ if __name__ == '__main__':
         CLI(net)
 
     # Cleanup: removing containers and stopping the network and VNF manager
-    mgr.removeContainer('streaming_server')
-    mgr.removeContainer('streaming_client')
+    mgr.removeContainer('host_server')
+    mgr.removeContainer('browsing_client')
     net.stop()
     mgr.stop()
