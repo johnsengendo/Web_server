@@ -11,7 +11,7 @@ As the client queries the web server, a TCP dump is performed at the client side
 
 2. **Run the `build_docker_images.sh` file**
    ```bash
-   /build_docker_images.sh
+   ./build_docker_images.sh
 
 3. **Run the `Topology.py` file**
    ```bash
