@@ -93,8 +93,8 @@ if __name__ == '__main__':
     print(reply)
 
     # Adding containers
-    streaming_server = add_web_container(mgr, 'host_server', 'server', 'web_server', shared_directory)
-    streaming_client = add_web_container(mgr, 'browsing_client', 'client', 'web_client', shared_directory)
+    web_server_host = add_web_container(mgr, 'host_server', 'server', 'web_server', shared_directory)
+    web_browser = add_web_container(mgr, 'browsing_client', 'client', 'web_client', shared_directory)
 
     # Creating threads to run the server and client
     server_thread = threading.Thread(target=start_server)
@@ -113,7 +113,7 @@ if __name__ == '__main__':
         CLI(net)
 
     # Cleanup: removing containers and stopping the network and VNF manager
-    mgr.removeContainer('streaming_server')
-    mgr.removeContainer('streaming_client')
+    mgr.removeContainer('web_server_host')
+    mgr.removeContainer('web_browser')
     net.stop()
     mgr.stop()
