@@ -1,7 +1,16 @@
 #!/bin/bash
 
-echo "Building docker image for the web server"
-docker build -t web_server --file ./Server/Dockerfile.server ./Server
+# Defining an associative array with key-value pairs
+# keys are the roles and the values are the directories
+declare -A build_configs=(
+    ["web_server"]="server"
+    ["web_client"]="client"
+)
 
-echo "Building docker image for the web client"
-docker build -t web_client --file ./Client/Dockerfile.client ./Client
+# Looping through the associative array
+for image_tag in "${!build_configs[@]}"; do
+    echo "Building docker image for ${build_configs[$image_tag]} streaming"
+    docker build -t "$image_tag" --file "./${build_configs[$image_tag]}/Dockerfile.${build_configs[$image_tag]}" "./${build_configs[$image_tag]}"
+done
+
+
