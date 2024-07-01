@@ -10,7 +10,7 @@ The client folder contains a Python script for the web client, which is used to 
 
 As the client queries the web server, a TCP dump is performed on the client side to capture the packets as they move between the client and the server. These packets are then stored in a pcap file, which is saved in the pcap folder.
 
-## Steps to Run the Simulation
+## Steps to run the simulation
 
 1. **Run the `clean.sh` file**
    ```bash
