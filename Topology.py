@@ -17,7 +17,7 @@ from mininet.log import info, setLogLevel
 from mininet.node import Controller
 
 # Function to add web containers
-def add_streaming_container(manager, name, role, image, shared_dir):
+def add_web_container(manager, name, role, image, shared_dir):
     return manager.addContainer(
         name, role, image, '', docker_args={
             'volumes': {
@@ -28,18 +28,18 @@ def add_streaming_container(manager, name, role, image, shared_dir):
 
 # Function to start server
 def start_server():
-    subprocess.run(['docker', 'exec', '-it', 'host_server', 'bash', '-c', 'cd /home && python3 video_streaming.py'])
+    subprocess.run(['docker', 'exec', '-it', 'host_server', 'bash', '-c', 'cd /home && python3 Web_Server.py'])
 
 # Function to start client
 def start_client():
-    subprocess.run(['docker', 'exec', '-it', 'browsing_client', 'bash', '-c', 'cd /home && python3 get_video_streamed.py'])
+    subprocess.run(['docker', 'exec', '-it', 'browsing_client', 'bash', '-c', 'cd /home && python3 Web_Client.py'])
 
 # Main execution starts here
 if __name__ == '__main__':
     # Setting up command-line argument parsing
-    parser = argparse.ArgumentParser(description='video streaming application.')
+    parser = argparse.ArgumentParser(description='web server application.')
     parser.add_argument('--autotest', dest='autotest', action='store_const', const=True, default=False,
-                        help='Enables automatic testing of the topology and closes the streaming application.')
+                        help='Enables automatic testing of the topology and closes the web app.')
     args = parser.parse_args()
 
     # Setting values for bandwidth and delay
@@ -93,8 +93,8 @@ if __name__ == '__main__':
     print(reply)
 
     # Adding containers
-    streaming_server = add_streaming_container(mgr, 'host_server', 'server', 'web_server', shared_directory)
-    streaming_client = add_streaming_container(mgr, 'browsing_client', 'client', 'web_client', shared_directory)
+    streaming_server = add_web_container(mgr, 'host_server', 'server', 'web_server', shared_directory)
+    streaming_client = add_web_container(mgr, 'browsing_client', 'client', 'web_client', shared_directory)
 
     # Creating threads to run the server and client
     server_thread = threading.Thread(target=start_server)
