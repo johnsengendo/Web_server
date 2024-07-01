@@ -1,4 +1,4 @@
-# Web_sever
+# Web_server
 
 In this repository, I simulate two hosts: a client and a server. In each host, a containerized application is run—a web server on the server host and a web client on the client host. 
 
