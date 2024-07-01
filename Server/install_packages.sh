@@ -10,13 +10,12 @@ apt-get install -y --no-install-recommends \
     python3-pip \
     bash-completion \
     curl \
-    iproute2 \
-    iputils-ping \
     net-tools
+    
 # Install Python packages
 pip install requests
 
-# Installing the packages required
+# Installing the packages required e.g for dumping traffic
 apt-get install -y \
     tcpdump \
     nano
