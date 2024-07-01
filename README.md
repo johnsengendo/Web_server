@@ -26,6 +26,6 @@ As the client queries the web server, a TCP dump is performed on the client side
 
 **Sample pcap file for the traffic captured during the browsing of the web server**
 
-![Alt text](https://github.com/johnsengendo/Web_sever/blob/main/Screenshot%202024-07-01%20003211.png)
+![Alt text](https://github.com/johnsengendo/Web_sever/blob/main/Images/Screenshot%202024-07-01%20003211.png)
 
 
