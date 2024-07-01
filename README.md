@@ -24,7 +24,7 @@ As the client queries the web server, a TCP dump is performed on the client side
    ```bash
    sudo python3 Topology.py
 
-**NB: after the running of the script please use ctrl+c to return to the mininet CLI**//
+**NB: after the running of the script please use ctrl+c to return to the mininet CLI** <br>
 Still fixing  this ....
 
 **Sample pcap file for the traffic captured during the browsing of the web server**
