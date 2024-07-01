@@ -1,6 +1,8 @@
 # Web_sever
-In this repository, I simulate two hosts, a client and a server, where the server hosts a docker container in which it runs a web server, and the client hosts a docker container which inside runs a client that queries the web server. To run the script, first of all, we have to run the clean.sh file, which helps to clear the mininet network and also to clear the containers existing. Then finally, we build the docker images using the build_docker_images.sh file. Then when the images are built, the Topology.py file is run. As the topology runs, the client queries the web server to generate a web page, and the client queries the web server 10 times.
 
+In this repository, I simulate two hosts: a client and a server. In each host, a containerized application is run—a web server on the server host and a web client on the client host. 
+
+To run the script, first of all, we need to run the `clean.sh` file, which helps clear the Mininet network and also remove any existing containers. Then, we build the Docker images using the `build_docker_images.sh` file. Once the images are built, the `Topology.py` file is run. As the topology runs, the client queries the web server to generate a web page. The client queries the web server 10 times.
 The server folder contains a web server Python script, where in it an HTML web page is written and hosted on the server, which the client queries when they connect to the web server. Furthermore, the server folder contains the Dockerfile for the server, and an installation package file for installing necessary packages.
 
 The client folder contains a web client Python file which is used to query the web server to generate the web page. Furthermore, it contains the Dockerfile for the client and an installation packages file to install the necessary packages.
