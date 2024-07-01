@@ -4,6 +4,7 @@ In this repository, I simulate two hosts, a client and a server, where the serve
 The server folder contains a web server Python script, where in it an HTML web page is written and hosted on the server, which the client queries when they connect to the web server. Furthermore, the server folder contains the Dockerfile for the server, and an installation package file for installing necessary packages.
 
 The client folder contains a web client Python file which is used to query the web server to generate the web page. Furthermore, it contains the Dockerfile for the client and an installation packages file to install the necessary packages.
+
 As the client queries the web server, a TCP dump is performed at the client side to capture the packets as they move between the client and the server, which are then stored in a pcap file, which is stored into the pcap folder.
 
 ## Steps to Run the Simulation
