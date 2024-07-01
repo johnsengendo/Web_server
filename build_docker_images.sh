@@ -3,8 +3,8 @@
 # Defining an associative array with key-value pairs
 # keys are the roles and the values are the directories
 declare -A build_configs=(
-    ["web_server"]="server"
-    ["web_client"]="client"
+    ["web_server"]="Server"
+    ["web_client"]="Client"
 )
 
 # Looping through the associative array
