@@ -44,7 +44,7 @@ if __name__ == "__main__":
     time.sleep(1)
 
     try:
-        # Continuously fetch the web page until the server shuts down
+        # Continuously fetching the web page until the server shuts down
         while True:
             try:
                 fetch_web_page()  # Fetching the web page
