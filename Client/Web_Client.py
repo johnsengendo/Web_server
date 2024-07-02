@@ -10,7 +10,6 @@ import os
 def start_tcpdump():
     """
     Starting capturing packets using tcpdump.
-
     Returns:
         subprocess.Popen: The tcpdump process object.
     """
@@ -19,7 +18,6 @@ def start_tcpdump():
 def stop_tcpdump(process):
     """
     Stopping the tcpdump process.
-
     Args:
         process (subprocess.Popen): The tcpdump process object.
     """
