@@ -9,7 +9,10 @@ import socketserver
 PORT = 8000
 MAX_REQUESTS = 10
 
-# Initializing a global variable to keep track of the number of requests served
+"""
+The global variable request_count keeps track of the number of requests served by the server.
+It is initialized to 0 and increments each time a request is handled.
+"""
 request_count = 0
 
 # Defining a custom TCP server that allows address reuse
@@ -17,7 +20,12 @@ class LimitedRequestHTTPServer(socketserver.TCPServer):
     # This flag will allow the server to shut down after handling a certain number of requests
     allow_reuse_address = True
 
-# Defining a custom HTTP request handler that serves a maximum number of requests and then shuts down the server
+"""
+LimitedRequestHandler is a custom HTTP request handler that serves a maximum number of requests
+and subsequently shuts down the server.
+It inherits from the http.server.SimpleHTTPRequestHandler class and overrides the do_GET method.
+The do_GET method is invoked whenever a GET request is received.
+"""
 class LimitedRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         global request_count
