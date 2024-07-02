@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # Importing necessary libraries
-import http.server  # For creating the HTTP server
-import socketserver  # For creating a TCP server
+import http.server
+import socketserver
 
 # Setting the port number and maximum number of requests to serve
 PORT = 8000
