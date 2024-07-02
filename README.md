@@ -1,6 +1,6 @@
 # Web_server
 
-In this repository, I use COMNETSEMU tosimulate two hosts: a client and a server. In each host, a containerized application is run—a web server on the server host and a web client on the client host. 
+In this repository, I use COMNETSEMU to simulate two hosts: a client and a server. In each host, a containerized application is run—a web server on the server host and a web client on the client host. 
 
 To run the script, first of all, we need to run the `clean.sh` file, which helps clear the Mininet network and also remove any existing containers. Then, we build the Docker images using the `build_docker_images.sh` file. Once the images are built, the `Topology.py` file is run. As the topology runs, the client queries the web server to generate a web page. The client queries the web server 10 times.
 
