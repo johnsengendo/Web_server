@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 # Importing necessary libraries
-import requests  # For making HTTP requests
-import subprocess  # For running tcpdump as a subprocess
-import time  # For adding delays between actions
-import os  # For interacting with the operating system
+import requests
+import subprocess
+import time
+import os
 
 def start_tcpdump():
     """
