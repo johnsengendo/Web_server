@@ -23,7 +23,7 @@ To run the script, first of all, we need to run the `clean.sh` file, which helps
   - Stores necessary images.
 
 
-## Steps to run the simulation
+## Steps to run the topology
 
 1. **Run the `clean.sh` file**
    ```bash
