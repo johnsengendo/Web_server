@@ -55,7 +55,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Setting values for bandwidth and delay
-    bandwidth = 0  # bandwidth in Mbps
+    bandwidth = 10  # bandwidth in Mbps
     delay = 5       # delay in milliseconds
     autotest = args.autotest
 
